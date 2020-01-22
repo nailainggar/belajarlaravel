@@ -65,3 +65,67 @@ Route::get('bio/{nama}/{alamat}/{umur}',function($a,$b,$c)
            '<br>alamat saya di '.$b.
            '<br>umur saya '.$c;
 });
+
+Route::get('name/{param?}',function($a="naila"){
+    return 'your name is '.$a;
+});
+
+
+Route::get('pesan/{makan?}/{minum?}/{harga?}',function($a=null, $b=null, $c){
+    if (isset($a)) {
+        echo "anda memesan ".$a;
+    }if (isset($b)) {
+        echo "& $b";
+    }if (isset($c)) {
+        if ($c >= 35000) {
+            $e = "size large";
+        }elseif ($c >= 25000) {
+            $e = "size medium";
+        }elseif ($c < 0) {
+            $e = "small";
+        }else {
+            return ' harga tidak valid';
+        }
+        echo "<br> $e dengan harga $c";
+
+    }
+    if (!$a && !$b) {
+        return 'silahkan memesan terlebih dahulu';
+    }
+});
+
+Route::get('tes-tni/{nama?}/{bb?}/{umur?}',function($a = null, $b = null, $c = null){
+    if (isset($a)) {
+        echo "nama anda $a";
+    }
+    if (isset($b)) {
+        if ($b >=76 && $b <= 100) {
+            $d= "anda harus turun berat badan";
+        }elseif ($b >=65 && $b <= 75) {
+            $d = "berat badan anda ideal";
+        }elseif ($b >=50 && $b <= 64) {
+            $d = "naikkan berat badan anda";
+        }elseif ($b >= 1 && $b <= 50) {
+            $d = " anda kurang nutrisi";
+        }else {
+            return "berat badan valid";
+        }
+        echo " berat badan anda $b : $d";
+    }
+    if (isset($c)) {
+        if ($c >= 50 && $c <= 60) {
+            $f = "perwira";
+        }elseif ($c <= 40) {
+            $f= "laksamana";
+        }elseif ($c <= 30) {
+            $f="jendral";
+        }else {
+            return "umur badan valid";
+        }
+        echo "<br>peringkat anda $f";
+    }
+    if (!$a && !$b) {
+        return 'silahkan isi terlebih dahulu';
+    }
+}
+);
