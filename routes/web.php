@@ -173,3 +173,29 @@ Route::get('testmodel5',function()
     return $query;
 });
 
+Route::get('data-bio/select', function()
+{
+    $query = App\Biodata::select('nama','jk','tgl_lahir')->first();
+    return $query;
+});
+Route::get('data-bio/3', function()
+{
+    $data = App/Biodata::all()
+    ->take(3);
+    return $data;
+});
+Route::get('data-bio/{nama}{jk}{tgl_lahir}{umur}{alamat}{hoby}{warna_fav}', function($nama,$jk,$tgl_lahir,$umur,$alamat,$hoby,$warna_fav)
+{
+    $post = new App\Biodata;
+    $post->nama = $nama;
+    $post->jk = $jk;
+    $post->tgl_lahir = $tgl_lahir;
+    $post->umur = $umur;
+    $post->alamat = $alamat;
+    $post->hoby = $hoby;
+    $post->warna_fav = $warna_fav;
+    $post->save();
+    return $post;
+
+});
+
