@@ -197,5 +197,13 @@ Route::get('data-bio/{nama}{jk}{tgl_lahir}{umur}{alamat}{hoby}{warna_fav}', func
     $post->save();
     return $post;
 
+
 });
 
+Route::get('latihan','LatihanController@halo');
+Route::get('tambah/{a}/{b?}','LatihanController@pertambahan');
+Route::get('kurang/{a}/{b?}','LatihanController@pengurangan');
+Route::get('bagi/{a}/{b?}','LatihanController@pembagian');
+Route::get('kali/{a}/{b?}','LatihanController@perkalian');
+Route::get('data','LatihanController@loop');
+Route::get('latihan','LatihanController@latihan');
