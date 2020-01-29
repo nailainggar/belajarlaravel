@@ -126,20 +126,63 @@ class LatihanController extends Controller
 
         ];
         foreach ($data as $var => $key) {
-            if ($var['jabatan' == manager]) {
+            if ($key['jabatan'] == "manager") {
                 $gaji = 5000000;
-                if ($var['jamkerja'] >= 250) {
+                if ($key['jamkerja'] >= 250) {
                     $bonus = $gaji/10;
                 }
-                elseif ($var['jamkerja'] >= 200) {
+                elseif ($key['jamkerja'] >= 200) {
                     $bonus = $gaji*5/100;
                 }
                 else {
-                    $bonus=0;
+                    $bonus = 0;
                 }
                 $gaji_bersih = $gaji+$bonus;
                 $potong = $gaji_bersih*2.5/100;
+                $total = $gaji_bersih - $potong;
+
+            }if ($key['jabatan' ] == "sekretaris") {
+                $gaji = 3500000;
+                if ($key['jamkerja'] >= 250) {
+                    $bonus = $gaji/10;
+                }
+                elseif ($key['jamkerja'] >= 200) {
+                    $bonus = $gaji*5/100;
+                }
+                else {
+                    $bonus = 0;
+                }
+                $gaji_bersih = $gaji+$bonus;
+                $potong = $gaji_bersih*2.5/100;
+                $total = $gaji_bersih - $potong;
+
+            }if ($key['jabatan'] == "staff") {
+                $gaji = 2500000;
+                if ($key['jamkerja'] >= 250) {
+                    $bonus = $gaji/10;
+                }
+                elseif ($key['jamkerja'] >= 200) {
+                    $bonus = $gaji*5/100;
+                }
+                else {
+                    $bonus = 0;
+                }
+                $gaji_bersih = $gaji+$bonus;
+                $potong = $gaji_bersih*2.5/100;
+                $total = $gaji_bersih - $potong;
             }
+                echo "Nama          : ".$key['Nama'].
+                     "<br> agama         : ".$key['agama'].
+                     "<br> alamat        : ".$key['alamat'].
+                     "<br> jenis kelamin : ".$key['jk'].
+                     "<br> jabatan       : ".$key['jabatan'].
+                     "<br> jam kerja     : ".$key['jamkerja'].
+                     "<br> gaji bersih   : ".$gaji_bersih.
+                     "<br> gaji kotor    : ".$potong.
+                     "<br> gaji total    : ".$total.
+                    "<hr>";
+
+
         }
     }
 }
