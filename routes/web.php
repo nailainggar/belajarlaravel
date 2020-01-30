@@ -222,3 +222,7 @@ Route::get('tabungan-tambah/{cc}/{nama}/{email}/{city}/{country}/{address}/{cont
 Route::get('update/{id}/{nis}/{nama}/{kelas}/{jml}','TabunganController@update');
 Route::get('delete/{id}','TabunganController@delete');
 
+// passing data
+Route::get('pass','PracticeController@pass');
+Route::get('pass1','PracticeController@pass1');
+Route::get('pass2','PracticeController@pass2');
