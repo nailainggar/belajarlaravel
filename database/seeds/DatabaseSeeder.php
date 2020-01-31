@@ -16,6 +16,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(PostsTablebio::class);
         factory(App\Tabungan::class, 100)->create();
         factory(App\Customer::class, 1000)->create();
-        // $this->call(UsersTableSeeder::class);
+        $this->call(BarangTableSeeder::class);
     }
 }

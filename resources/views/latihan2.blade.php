@@ -11,6 +11,17 @@
     @foreach ($tabungan as $data)
         Nama : {{ $data->nama }}<br>
         Nis  : {{ $data->nis }}<br>
+        Jumlah : {{ $data->jml }}<br>
+    @if ($data->jml >= 25000)
+        "Paket C"
+    @elseif ($data->jml >= 10000)
+        "Paket B"
+    @elseif ($data->jml >= 1000)
+        "Paket A"
+    @endif
+
     @endforeach
+
+
 </body>
 </html>
